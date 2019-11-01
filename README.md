@@ -1,2 +1,2 @@
 # Žijeme IT 11/2019
-Repozitář obsahuje kód demonstrovaný na přednášce Automatizované testování UI
+Repozitář obsahuje podklady pro přednášku Automatizované testování UI
