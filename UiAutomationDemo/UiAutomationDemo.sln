@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiAutomationDemo", "UiAutom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiAutomationTests", "..\UiAutomationTests\UiAutomationTests.csproj", "{04D4ABC1-65A3-4094-BB4E-74596E9F036B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiAutomationEmptyProject", "..\UiAutomationEmptyProject\UiAutomationEmptyProject.csproj", "{19143786-A821-4D94-9496-DCC71B302515}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{04D4ABC1-65A3-4094-BB4E-74596E9F036B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04D4ABC1-65A3-4094-BB4E-74596E9F036B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04D4ABC1-65A3-4094-BB4E-74596E9F036B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19143786-A821-4D94-9496-DCC71B302515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19143786-A821-4D94-9496-DCC71B302515}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19143786-A821-4D94-9496-DCC71B302515}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19143786-A821-4D94-9496-DCC71B302515}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
