@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiAutomationDemo", "UiAutomationDemo.csproj", "{9A193693-5682-4DA0-BB4C-4BC58760A650}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiAutomationDemo", "UiAutomationDemo\UiAutomationDemo.csproj", "{9A193693-5682-4DA0-BB4C-4BC58760A650}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiAutomationTests", "..\UiAutomationTests\UiAutomationTests.csproj", "{04D4ABC1-65A3-4094-BB4E-74596E9F036B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiAutomationTests", "UiAutomationTests\UiAutomationTests.csproj", "{04D4ABC1-65A3-4094-BB4E-74596E9F036B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiAutomationEmptyProject", "..\UiAutomationEmptyProject\UiAutomationEmptyProject.csproj", "{19143786-A821-4D94-9496-DCC71B302515}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiAutomationSimpleDemo", "UiAutomationSimpleDemo\UiAutomationSimpleDemo.csproj", "{19143786-A821-4D94-9496-DCC71B302515}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
