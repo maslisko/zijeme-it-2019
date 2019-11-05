@@ -50,8 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Calculator.cs" />
-    <Compile Include="CalculatorTests.cs" />
+    <Compile Include="CalculatorSmokeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CalculatorUiTestsBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

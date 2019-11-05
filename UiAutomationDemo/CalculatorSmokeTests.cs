@@ -8,42 +8,8 @@ using System.IO;
 namespace UiAutomationDemo
 {
     [TestClass]
-    public class CalculatorTests
+    public class CalculatorSmokeTests : CalculatorUiTestsBase
     {
-        private Calculator calc;
-        private AutomationBase automation;
-
-        public TestContext TestContext { get; set; }
-
-        #region Test setup
-
-        [TestInitialize]
-        public void InitTest()
-        {
-            automation = new UIA3Automation();
-            calc = new Calculator(automation);
-            calc.SwitchToStandard();
-        }
-
-        #endregion
-
-        #region Test cleanup
-
-        [TestCleanup]
-        public void Cleaup()
-        {
-            var image = Capture.Screen();
-            // add cursor to bitmap
-            image.ApplyOverlays(new MouseOverlay(image));
-            image.ToFile(Path.Combine(TestContext.TestResultsDirectory, TestContext.TestName+".png"));
-
-            calc.Close();
-            automation.Dispose();
-        }
-
-        #endregion
-
-        #region Tests
 
         [TestMethod]
         public void TestModeSwitching()
@@ -90,7 +56,6 @@ namespace UiAutomationDemo
             Assert.AreEqual(calc.Result, "3.1415926535897932384626433832795", "Unexpected value of PI");
         }
 
-        #endregion
 
     }
 }
