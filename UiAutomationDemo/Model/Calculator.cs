@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
 using FlaUI.Core;
 using FlaUI.Core.AutomationElements;
 using FlaUI.Core.AutomationElements.Infrastructure;
@@ -13,8 +16,19 @@ namespace UiAutomationDemo.Model
         public Calculator(AutomationBase automation)
         {
             app = Application.LaunchStoreApp("Microsoft.WindowsCalculator_8wekyb3d8bbwe!App");
-            mainWindow = app.GetMainWindow(automation);
-            mainWindow = automation.GetDesktop().FindFirstDescendant(cf => cf.ByName("Kalkulačka")).AsWindow(); ;
+            app.WaitWhileBusy();
+            //mainWindow = app.GetMainWindow(automation);
+            mainWindow = automation.GetDesktop().FindFirstDescendant(cf => cf.ByName("Kalkulačka")).AsWindow();
+            mainWindow.SetForeground();
+            
+            /*Keyboard.TypeSimultaneously(VirtualKeyShort.LWIN, VirtualKeyShort.KEY_R);
+            Keyboard.Type("calc");
+            Wait.UntilInputIsProcessed();
+            Keyboard.Press(VirtualKeyShort.ENTER);
+            Wait.UntilInputIsProcessed();
+            mainWindow = automation.GetDesktop().FindFirstDescendant(cf => cf.ByName("Kalkulačka")).AsWindow();
+            Process p = Process.GetProcessesByName("Calculator").First();
+            app = new Application(p, true);*/
         }
 
         #region Private properties
@@ -50,10 +64,11 @@ namespace UiAutomationDemo.Model
         public Button ButtonPi => FindElement("piButton").AsButton();
 
 
-        public Button ButtonAdd => FindElement("plusButton").AsButton();
+        public Button ButtonPlus => FindElement("plusButton").AsButton();
         public Button ButtonMinus => FindElement("minusButton").AsButton();
         public Button ButtonMultiply => FindElement("multiplyButton").AsButton();
         public Button ButtonDivide => FindElement("divideButton").AsButton();
+        public Button ButtonDecimalSeparator => FindElement("decimalSeparatorButton").AsButton();
         public Button ButtonEquals => FindElement("equalButton").AsButton();
 
         public string Result
@@ -62,7 +77,7 @@ namespace UiAutomationDemo.Model
             {
                 var resultElement = FindElement("CalculatorResults");
                 var value = resultElement.Properties.Name;
-                return Regex.Replace(value, "[^0-9]", string.Empty);
+                return Regex.Replace(value, "Zobrazuje se ", string.Empty);
             }
         }
 
@@ -72,7 +87,7 @@ namespace UiAutomationDemo.Model
             {
                 var headerElement = FindElement("Header").AsTextBox();
                 var value = headerElement.Name;
-                return Regex.Replace(value, "Režim kalkulačky", string.Empty);
+                return Regex.Replace(value, "Režim kalkulačky ", string.Empty);
             }
         }
 
@@ -95,13 +110,6 @@ namespace UiAutomationDemo.Model
         public void SwitchToScientific()
         {
             Keyboard.TypeSimultaneously(VirtualKeyShort.ALT, VirtualKeyShort.KEY_2);
-            Wait.UntilInputIsProcessed();
-            app.WaitWhileBusy();
-        }
-
-        public void SwitchToProgrammers()
-        {
-            Keyboard.TypeSimultaneously(VirtualKeyShort.ALT, VirtualKeyShort.KEY_3);
             Wait.UntilInputIsProcessed();
             app.WaitWhileBusy();
         }
