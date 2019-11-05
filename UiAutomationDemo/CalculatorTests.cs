@@ -1,7 +1,9 @@
 ﻿using FlaUI.UIA3;
 using FlaUI.Core;
+using FlaUI.Core.Capturing;
 using UiAutomationDemo.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
 
 namespace UiAutomationDemo
 {
@@ -10,14 +12,16 @@ namespace UiAutomationDemo
     {
         private Calculator calc;
         private AutomationBase automation;
+        private TestContext context;
         
         #region Test setup
 
         [TestInitialize]
-        public void InitTest()
+        public void InitTest(TestContext testContext)
         {
             automation = new UIA3Automation();
             calc = new Calculator(automation);
+            context = testContext;
         }
 
         #endregion
@@ -27,6 +31,11 @@ namespace UiAutomationDemo
         [TestCleanup]
         public void Cleaup()
         {
+            var image = Capture.Screen();
+            // add cursor
+            image.ApplyOverlays(new MouseOverlay(image));
+            image.ToFile(Path.Combine(context.TestResultsDirectory, context.TestName, ".png"));
+
             calc.Close();
             automation.Dispose();
         }
