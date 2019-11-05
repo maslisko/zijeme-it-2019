@@ -12,16 +12,17 @@ namespace UiAutomationDemo
     {
         private Calculator calc;
         private AutomationBase automation;
-        private TestContext context;
-        
+
+        public TestContext TestContext { get; set; }
+
         #region Test setup
 
         [TestInitialize]
-        public void InitTest(TestContext testContext)
+        public void InitTest()
         {
             automation = new UIA3Automation();
             calc = new Calculator(automation);
-            context = testContext;
+            calc.SwitchToStandard();
         }
 
         #endregion
@@ -32,9 +33,9 @@ namespace UiAutomationDemo
         public void Cleaup()
         {
             var image = Capture.Screen();
-            // add cursor
+            // add cursor to bitmap
             image.ApplyOverlays(new MouseOverlay(image));
-            image.ToFile(Path.Combine(context.TestResultsDirectory, context.TestName, ".png"));
+            image.ToFile(Path.Combine(TestContext.TestResultsDirectory, TestContext.TestName+".png"));
 
             calc.Close();
             automation.Dispose();
@@ -63,7 +64,7 @@ namespace UiAutomationDemo
             calc.Button0.Click();
             calc.ButtonEquals.Click();
 
-            Assert.AreEqual(calc.Result, "110", "Addition failed");
+            Assert.AreEqual(calc.Result, "111", "Addition failed");
         }
 
         [TestMethod]
