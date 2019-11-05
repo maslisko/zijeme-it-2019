@@ -18,9 +18,7 @@ namespace UiAutomationDemo
         public void InitTest()
         {
             automation = new UIA3Automation();
-            Application.LaunchStoreApp("Microsoft.WindowsCalculator_8wekyb3d8bbwe!App");
-            var window = automation.GetDesktop().FindFirstDescendant(cf => cf.ByName("Kalkulačka"));
-            calc = new Calculator(window);
+            calc = new Calculator(automation);
         }
 
         [TestCleanup]
