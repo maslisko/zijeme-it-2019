@@ -52,5 +52,10 @@
   <ItemGroup>
     <Content Include="simpleDemoSrc.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FlaUI.UIA3">
+      <Version>2.0.0-rc1</Version>
+    </PackageReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
