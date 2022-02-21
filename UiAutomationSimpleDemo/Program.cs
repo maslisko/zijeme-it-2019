@@ -17,7 +17,7 @@ namespace UiAutomationSimpleDemo
             var app = Application.LaunchStoreApp("Microsoft.WindowsCalculator_8wekyb3d8bbwe!App");
             using (var automation = new UIA3Automation())
             {
-                var window = automation.GetDesktop().FindFirstDescendant(cf => cf.ByName("Kalkulačka"));
+                var window = automation.GetDesktop().FindFirstDescendant(cf => cf.ByName("Calculadora"));
                 // var window = app.GetMainWindow(automation);
                 window.SetForeground();
                 var buttonPi = window.FindFirstDescendant(cf => cf.ByAutomationId("piButton"));
