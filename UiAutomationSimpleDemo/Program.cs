@@ -20,7 +20,7 @@ namespace UiAutomationSimpleDemo
                 var window = automation.GetDesktop().FindFirstDescendant(cf => cf.ByName("Calculator"));
                 // var window = app.GetMainWindow(automation);
                 window.SetForeground();
-                var buttonPi = window.FindFirstDescendant(cf => cf.ByAutomationId("piButton"));
+                var buttonPi = window.FindFirstDescendant(cf => cf.ByAutomationId("piButton2"));
                 buttonPi.Click();
 
                 var resultBox = window.FindFirstDescendant(cf => cf.ByAutomationId("CalculatorResults"));
